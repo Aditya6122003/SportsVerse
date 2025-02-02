@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Turfs{% endblock title %}
+
+{% block content %}
+
+<div class="container py-5">
+    <h2 class="text-center mb-4">Available Turfs</h2>
+    <div class="row">
+        {% for turf in available_turfs %}
+        <div class="col-md-4 mb-4">
+            <div class="card" style="border-radius: 15px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                {% if turf.image %}
+                <img src="{{ turf.image.url }}" class="card-img-top" alt="{{ turf.name }}" 
+                     style="height: 200px; object-fit: cover; border-radius: 15px 15px 0 0;">
+                {% else %}
+                <img src="{% static 'img/default-turf.jpg' %}" class="card-img-top" alt="Default Turf Image"
+                     style="height: 200px; object-fit: cover; border-radius: 15px 15px 0 0;">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ turf.name }}</h5>
+                    <p class="card-text">
+                        <strong>Location:</strong> {{ turf.location }}<br>
+                        <strong>Price/Hour:</strong> ₹{{ turf.price_per_hour }}<br>
+                        <strong>Available:</strong> {{ turf.available_from }} - {{ turf.available_to }}
+                    </p>
+                    <form action="{% url 'confirm_booking' turf.id %}" method="post" class="booking-form">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-primary btn-block">Book Now</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p class="text-center">No available turfs for the selected time slot.</p>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- ✅ JavaScript for Booking Confirmation Alert ✅ -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll(".booking-form").forEach(form => {
+            form.addEventListener("submit", function (event) {
+                event.preventDefault();  // Prevent page reload
+                
+                let formData = new FormData(this);
+                let url = this.action; 
+    
+                fetch(url, {
+                    method: "POST",
+                    body: formData,
+                    headers: {
+                        "X-Requested-With": "XMLHttpRequest",
+                        "X-CSRFToken": "{{ csrf_token }}"
+                    }
+                })
+                .then(response => response.json())  
+                .then(data => {
+                    if (data.message) {
+                        alert(data.message);  // ✅ Show success message as alert
+                        window.location.reload();  // ✅ Reload page after booking
+                    } else {
+                        alert("Booking failed. Please try again.");
+                    }
+                })
+                .catch(error => console.error("Error:", error));
+            });
+        });
+    });
+</script>
+
+{% endblock %}

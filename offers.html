@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Special Offers - Sport Verse{% endblock title %}
+
+{% block content %}
+<!-- Page Header Start -->
+<div class="container-fluid bg-light text-dark mb-5">
+    <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 200px;">
+        <h1 class="font-weight-semi-bold text-uppercase mb-3">Special Offers</h1>
+        <div class="d-inline-flex">
+            <p class="m-0"><a href="/" class="text-dark">Home</a></p>
+            <p class="m-0 px-2">-</p>
+            <p class="m-0 text-dark">Offers</p>
+        </div>
+    </div>
+</div>
+<!-- Page Header End -->
+
+<!-- Offers Section Start -->
+<div class="container py-5">
+    <div class="row">
+        <!-- Category Filters -->
+        <div class="col-lg-3">
+            <h5 class="text-dark mb-4">Filter by Category</h5>
+            <ul class="list-group">
+                {% for category in categories %}
+                <li class="list-group-item {% if category.id == category_id|default:None %}active{% endif %}">
+                    <a href="?category={{ category.id }}" class="text-dark">{{ category.name }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <!-- Offers Section -->
+        <div class="col-lg-9">
+            {% for category, products in categorized_offers.items %}
+            <h3 class="mb-4">{{ category }}</h3>
+            <div class="row">
+                {% for product in products %}
+                <div class="col-md-4 mb-4">
+                    <div class="card border-0 shadow-sm">
+                        <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">{{ product.name }}</h5>
+                            <p class="text-success font-weight-bold">${{ product.discounted_price }}</p>
+                            <p class="text-muted"><del>${{ product.original_price }}</del></p>
+                            <a href="/detail/{{ product.id }}/" class="btn btn-sm btn-outline-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% endfor %}
+
+            <!-- Pagination -->
+            <div class="d-flex justify-content-center mt-4">
+                <nav>
+                    <ul class="pagination">
+                        {% if page_obj.has_previous %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ page_obj.previous_page_number }}{% if category_id %}&category={{ category_id }}{% endif %}">
+                                Previous
+                            </a>
+                        </li>
+                        {% endif %}
+                        {% for i in page_obj.paginator.page_range %}
+                        <li class="page-item {% if page_obj.number == i %}active{% endif %}">
+                            <a class="page-link" href="?page={{ i }}{% if category_id %}&category={{ category_id }}{% endif %}">{{ i }}</a>
+                        </li>
+                        {% endfor %}
+                        {% if page_obj.has_next %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ page_obj.next_page_number }}{% if category_id %}&category={{ category_id }}{% endif %}">
+                                Next
+                            </a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Offers Section End -->
+{% endblock %}

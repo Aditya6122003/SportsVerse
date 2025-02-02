@@ -1,0 +1,193 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Contact Us {% endblock title %}
+{% block content %}
+
+<!-- Page Header Start -->
+<div class="container-fluid bg-gradient-to-r from-blue-500 to-green-500 mb-5">
+    <div class="d-flex flex-column align-items-center justify-content-center text-center" style="min-height: 150px; padding: 40px;">
+        <h1 class="font-weight-semi-bold text-dark mb-3" style="font-size: 40px; text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.6);">
+            Welcome {{ request.user.username }} to Sport-Verse Contact Page
+        </h1>
+        <div class="d-inline-flex">
+            <p class="text-center text-shadow">We value your feedback and are here to assist you with any queries.</p>
+        </div>
+    </div>
+</div>
+<!-- Page Header End -->
+
+<!-- Contact Section Start -->
+<div class="container-fluid py-5">
+    <div class="text-center mb-5">
+        <h2 class="section-title px-5"><span class="px-3 bg-light text-primary">Get in Touch with Sport Verse</span></h2>
+        <p class="text-muted mt-3">Whether you’re looking for information about our products or have a question, we’re here to help!</p>
+    </div>
+
+    <div class="row px-xl-5">
+        <!-- Contact Form Start -->
+        <div class="col-lg-7 mb-5">
+            <div class="contact-form bg-light p-5 shadow-lg rounded">
+                <h5 class="font-weight-bold mb-4 text-center">Send Us a Message</h5>
+
+                <!-- Bootstrap Alert Fallback -->
+                {% if messages %}
+                <div class="container">
+                    {% for message in messages %}
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}                               
+
+
+                <form name="sentMessage" id="contactForm" novalidate="novalidate" action="{% url 'contact' %}" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <input type="text" class="form-control border-primary py-3 px-4" id="name" placeholder="Your Name"
+                            name="username" required="required"
+                            data-validation-required-message="Please enter your name" />
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control border-primary py-3 px-4" id="email" placeholder="Your Email"
+                            name="email" required="required"
+                            data-validation-required-message="Please enter your email" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control border-primary py-3 px-4" id="subject" placeholder="Subject"
+                            name="subject" required="required"
+                            data-validation-required-message="Please enter a subject" />
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control border-primary py-3 px-4" rows="6" id="message" placeholder="Message"
+                            required="required" name="message"
+                            data-validation-required-message="Please enter your message"></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button class="btn btn-primary py-2 px-4 btn-lg" type="submit" id="sendMessageButton">
+                            Send Message
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- Contact Form End -->
+
+        <!-- Contact Info Start -->
+        <div class="col-lg-5 mb-5">
+            <div class="bg-light p-5 shadow-lg rounded">
+                <h5 class="font-weight-bold mb-4 text-center">Connect with Us</h5>
+                <p class="text-muted text-center mb-4">"Feel free to contact us for any sports-related queries or assistance."</p>
+
+                <div class="mb-4">
+                    <h6 class="font-weight-bold text-primary">Store 1</h6>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-3"></i>Sector 15, Gandhinagar, Gujarat</p>
+                    <p class="mb-2"><i class="fa fa-envelope text-primary mr-3"></i>info@sportverse.com</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt text-primary mr-3"></i>+91-9893883430</p>
+                </div>
+            </div>
+        </div>
+        <!-- Contact Info End -->
+    </div>
+</div>
+<!-- Contact Section End -->
+
+<!-- SweetAlert2 Script -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    {% if messages %}
+        {% for message in messages %}
+            Swal.fire({
+                title: "Success!",
+                text: "{{ message }}",
+                icon: "success",
+                confirmButtonColor: "#3085d6",
+                confirmButtonText: "OK"
+            });
+        {% endfor %}
+    {% endif %}
+</script>
+
+<style>
+    /* Gradient Background for Page Header */
+    .bg-gradient-primary {
+        background: linear-gradient(135deg, rgba(0, 123, 255, 0.9), rgba(0, 123, 255, 0.7));
+    }
+
+    /* Button Hover Effect */
+    .btn-primary {
+        background-color: #D19C97;
+        border: none;
+        transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .btn-primary:hover {
+        background-color: #D19C97;
+        transform: translateY(-3px);
+    }
+
+    /* Focus Input Fields */
+    .contact-form input:focus, .contact-form textarea:focus {
+        border-color: #D19C97;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    }
+
+    /* Contact Form Styling */
+    .contact-form {
+        background: #f8f9fa;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        border-radius: 0.75rem;
+        border: 1px solid #ddd;
+    }
+
+    .contact-form textarea {
+        resize: none;
+    }
+
+    /* Section Titles */
+    .section-title span {
+        background-color: #f1f1f1;
+        padding: 0 15px;
+        font-size: 1.5rem;
+        border-radius: 0.5rem;
+    }
+
+    /* Box Shadows for Forms and Info Sections */
+    .shadow-lg {
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Rounded Corners */
+    .rounded {
+        border-radius: 0.75rem;
+    }
+
+    /* Icons Styling */
+    .fa {
+        color: #D19C97;
+    }
+
+    /* Contact Info Section Styling */
+    .contact-info h6 {
+        font-weight: bold;
+        color: #D19C97;
+    }
+
+    .contact-info p {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    /* Text Shadow for Hero Section */
+    .text-shadow {
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    }
+</style>
+
+{% endblock content %}

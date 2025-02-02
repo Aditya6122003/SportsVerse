@@ -1,0 +1,299 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>
+        {% block title %} home {% endblock title %}
+    </title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+
+    {% load static %}
+
+    <!-- Favicon -->
+    <link href="{% static 'img/favicon.ico' %}" rel="icon">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="{% static 'owlcarousel/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'owlcarousel/owl.theme.default.min.css' %}">
+
+    <!-- jQuery (required for Owl Carousel) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Owl Carousel JS -->
+    <script src="{% static 'owlcarousel/owl.carousel.min.js' %}"></script>
+
+    
+    <style>
+        /* General Header Styling */
+.bg-dark {
+    background-color: #222 !important;
+}
+
+.text-white {
+    color: #fff !important;
+}
+
+/* Link Styling */
+.header-link {
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.header-link:hover {
+    color: #f39c12;
+    transform: scale(1.1);
+}
+
+/* Social Media Icons */
+.header-social {
+    font-size: 16px;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.header-social:hover {
+    color: #f39c12;
+    transform: rotate(-10deg) scale(1.2);
+}
+
+</style>
+
+
+</head>
+
+<body>
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-success alert-dismissible text-center small w-25 mx-auto" role="alert">
+            {{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {% endfor %}
+{% endif %}
+
+<!-- Topbar Start -->
+<div class="container-fluid">
+    <div class="row bg-dark text-white py-2 px-xl-5">
+        <!-- Left Section: Links -->
+        <div class="col-lg-6 d-none d-lg-block">
+            <div class="d-inline-flex align-items-center">
+                <a class="text-white header-link" href="/faq/">FAQ</a>
+                <span class="text-muted px-2">|</span>
+                <a class="text-white header-link" href="">Help</a>
+                <span class="text-muted px-2">|</span>
+                <a class="text-white header-link" href="">Support</a>
+            </div>
+        </div>
+
+        <!-- Right Section: Social Media -->
+        <div class="col-lg-6 text-center text-lg-right">
+            <div class="d-inline-flex align-items-center">
+                <a class="text-white header-social px-2" href="https://www.facebook.com/SportVerse">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a class="text-white header-social px-2" href="https://twitter.com/SportVerse">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a class="text-white header-social px-2" href="https://www.linkedin.com/company/sportverse">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a class="text-white header-social px-2" href="https://www.instagram.com/sportverse">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a class="text-white header-social pl-2" href="https://www.youtube.com/c/SportVerse">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+    <!--navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+        <div class="container">
+            <!-- Logo -->
+            <a href="/" class="navbar-brand d-flex align-items-center">
+                <img src="/static/img/about.jpg" alt="Sport Verse Logo" width="50" class="mr-2">
+                <h1 class="m-0 display-5 font-weight-bold">
+                    <span class="text-primary">SPORT</span>Verse
+                </h1>
+            </a>
+    
+            <!-- Toggler for Mobile -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <!-- Navbar Links -->
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a href="/" class="nav-link active">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/shop/" class="nav-link">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/about/" class="nav-link">About Us</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">My Account</a>
+                        <div class="dropdown-menu">
+                            <a href="/shop/" class="dropdown-item"><i class="fas fa-shopping-cart"></i> Shopping Cart</a>
+                            <a href="/checkout/" class="dropdown-item"><i class="fas fa-credit-card"></i> Checkout</a>
+                            <a href="/order_history/" class="dropdown-item"><i class="fas fa-history"></i> Order History</a>
+                            <a href="/fav/" class="dropdown-item"><i class="fas fa-heart"></i> My Wishlist</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/contact/" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    {% if request.user.is_authenticated %}
+                        <li class="nav-item">
+                            <a href="/signout/" class="nav-link"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        </li>
+                        <li class="nav-item">
+                            <span class="nav-link">WELCOME: {{ request.user.username }}</span>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a href="/signin/" class="nav-link"><i class="fas fa-sign-in-alt"></i> Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/signup/" class="nav-link"><i class="fas fa-user-plus"></i> Register</a>
+                        </li>
+                    {% endif %}
+                </ul>
+                <a href="/view_cart/" class="btn btn-transparent ml-2 position-relative">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="badge badge-light position-absolute top-0 start-100 translate-middle">{{ cart_item_count }}</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+    
+    
+<!-- Topbar End -->
+
+{% block content %}
+
+{% endblock content %}
+
+<main id="main">
+
+    {% block body %}
+
+    {% endblock body %}
+
+</main><!-- End #main -->
+
+<!-- Footer Start -->
+<footer class="bg-light textdark pt-5 pb-4">
+    <div class="container">
+        <div class="row">
+            <!-- About Section -->
+            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up">
+                <h5 class="font-weight-bold">About Sport Verse</h5>
+                <p>Sport Verse is your ultimate destination for sports gear and apparel. Explore our wide selection and elevate your game!</p>
+                <p><i class="fa fa-map-marker-alt"></i> Sector 15, Gandhinagar, Gujarat</p>
+                <p><i class="fa fa-phone"></i>+91-9893883430</p>
+                <p><i class="fa fa-envelope"></i> info@sportverse.com</p>
+            </div>
+            <!-- Quick Links -->
+            <div class="col-lg-2 col-md-3 mb-4" data-aos="fade-up" data-aos-delay="100">
+                <h5 class="font-weight-bold">Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="/" class="text-dark">Home</a></li>
+                    <li><a href="/shop/" class="text-dark">Shop</a></li>
+                    <li><a href="/about/" class="text-dark">About Us</a></li>
+                    <li><a href="/contact/" class="text-dark">Contact</a></li>
+                </ul>
+            </div>
+            <!-- Policies -->
+            <div class="col-lg-2 col-md-3 mb-4" data-aos="fade-up" data-aos-delay="200">
+                <h5 class="font-weight-bold">Policies</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#Terms" class="text-dark">Terms of Services</a></li>
+                    <li><a href="#Privacy" class="text-dark">Privacy Policy</a></li>
+                    <li><a href="/faq/" class="text-dark">FAQ</a></li>
+                </ul>
+            </div>
+            <!-- Newsletter -->
+            <div class="col-lg-4 col-md-12" data-aos="fade-up" data-aos-delay="300">
+                <h5 class="font-weight-bold">Subscribe to Our Newsletter</h5>
+                <form>
+                    <div class="form-group mb-3">
+                        <input type="text" class="form-control" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <input type="email" class="form-control" placeholder="Your Email" required>
+                    </div>
+                    <button class="btn btn-primary btn-block">Subscribe</button>
+                </form>
+                <div class="mt-4">
+                    <a href="https://facebook.com/SportVerse" class="text-light mx-2"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com/SportVerse" class="text-light mx-2"><i class="fab fa-twitter"></i></a>
+                    <a href="https://linkedin.com/company/SportVerse" class="text-light mx-2"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://instagram.com/SportVerse" class="text-light mx-2"><i class="fab fa-instagram"></i></a>
+                    <a href="https://youtube.com/SportVerse" class="text-light mx-2"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <hr class="bg-light">
+        <div class="text-center">
+            <p class="m-0">&copy; {{ current_year }} Sport Verse. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Footer End -->
+
+<!-- Back to Top -->
+<a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+<!-- JavaScript Libraries -->
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'lib/easing/easing.min.js' %}"></script>
+<script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+
+<!-- Contact Javascript File -->
+<script src="mail/jqBootstrapValidation.min.js"></script>
+<script src="mail/contact.js"></script>
+
+<!-- Template Javascript -->
+<script src="{% static 'js/main.js' %}"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+    AOS.init();
+</script>
+
+</html>

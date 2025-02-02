@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Wishlist {% endblock title%}
+{% block content %}
+
+<!-- Page Header Start -->
+<div class="container-fluid bg-secondary mb-5">
+    <div class="d-flex flex-column align-items-center justify-content-center text-white" style="min-height: 200px">
+        <h1 class="font-weight-bold text-uppercase mb-3">My Wishlist</h1>
+        <div class="d-inline-flex">
+            <p class="m-0"><a href="/" class="text-dark">Home</a></p>
+            <p class="m-0 px-2 text-dark">/</p>
+            <p class="m-0 text-dark">Wishlist</p>
+        </div>
+    </div>
+</div>
+<!-- Page Header End -->
+
+<!-- Wishlist Start -->
+<div class="container-fluid pt-5">
+    <div class="row px-xl-5">
+
+        <!-- Wishlist Products Start -->
+        <div class="col-lg-9 col-md-12">
+            <div class="row pb-3 justify-content-center">
+
+                {% if wishlist %}
+                {% for product in wishlist %}
+                <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
+                    <div class="card product-item border-0 shadow-sm mb-4">
+                        <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                            <img class="img-fluid w-100" src="{{ product.image.url }}" alt="{{ product.name }}">
+                            <div class="position-absolute top-0 left-0 p-2 bg-warning text-white rounded">Featured</div>
+                        </div>
+                        <div class="card-body border-left border-right text-center p-3">
+                            <h6 class="text-truncate font-weight-bold mb-3">{{ product.name }}</h6>
+                            <div class="d-flex justify-content-center align-items-center">
+                                <h6 class="font-weight-bold text-success">₹{{ product.price }}</h6>
+                                {% if product.original_price %}
+                                <h6 class="text-muted ml-2">
+                                    <del>₹{{ product.original_price }}</del>
+                                </h6>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between bg-light border">
+                            <a href="/detail/{{ product.id }}/" class="btn btn-sm btn-outline-primary">
+                                <i class="fas fa-eye mr-1"></i>View Details
+                            </a>
+                            <a href="/remove_fav/{{ product.id }}/" class="btn btn-sm btn-outline-danger">
+                                <i class="fas fa-heart-broken mr-1"></i>Remove
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                {% else %}
+                <div class="col-12 text-center">
+                    <h4 class="text-muted">Your wishlist is empty!</h4>
+                    <a href="/" class="btn btn-primary mt-3">Start Shopping</a>
+                </div>
+                {% endif %}
+
+            </div>
+        </div>
+        <!-- Wishlist Products End -->
+
+        <!-- Sidebar Start -->
+        <div class="col-lg-3 col-md-12">
+            <div class="bg-light p-4 mb-4">
+                <h5 class="font-weight-bold text-uppercase">Categories</h5>
+                <ul class="list-unstyled">
+                    <li class="py-2 border-bottom"><a href="/category/football" class="text-dark">Football</a></li>
+                    <li class="py-2 border-bottom"><a href="/category/basketball" class="text-dark">Basketball</a></li>
+                    <li class="py-2 border-bottom"><a href="/category/fitness" class="text-dark">Fitness</a></li>
+                    <li class="py-2"><a href="/category/outdoor" class="text-dark">Outdoor Sports</a></li>
+                </ul>
+            </div>
+            <div class="bg-light p-4">
+                <h5 class="font-weight-bold text-uppercase">Popular Products</h5>
+                <div class="d-flex align-items-center mb-3">
+                    <img src="{% static 'images/popular1.jpg' %}" class="img-fluid" style="width: 50px; height: 50px;" alt="Popular Product">
+                    <div class="pl-3">
+                        <h6 class="text-truncate">Popular Product Name</h6>
+                        <p class="m-0 text-muted">₹999</p>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center mb-3">
+                    <img src="{% static 'images/popular2.jpg' %}" class="img-fluid" style="width: 50px; height: 50px;" alt="Popular Product">
+                    <div class="pl-3">
+                        <h6 class="text-truncate">Popular Product Name</h6>
+                        <p class="m-0 text-muted">₹1,299</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Sidebar End -->
+
+    </div>
+</div>
+<!-- Wishlist End -->
+
+{% endblock content %}

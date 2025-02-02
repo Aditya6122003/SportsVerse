@@ -1,0 +1,434 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+
+<!-- Hero Section Start -->
+<div id="header-carousel" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active" style="height: 700px;">
+            <img class="img-fluid w-100 h-100" src="{% static 'img/caru-3.webp' %}" alt="Image">
+            <div class="carousel-caption d-flex flex-column align-items-center justify-content-center" style="background: rgba(0, 0, 0, 0.5); padding: 40px; animation: fadeIn 2s;">
+
+                <h4 class="text-light text-uppercase font-weight-medium mb-3">10% Off Your First Order</h4>
+                <h3 class="display-4 text-white font-weight-semi-bold mb-4">Latest Sports Items</h3>
+                <a href="/shop/" class="btn btn-primary py-2 px-4 rounded-pill shadow-lg">Shop Now</a>
+            </div>
+        </div>
+        <div class="carousel-item" style="height: 700px;">
+            <img class="img-fluid w-100 h-100" src="{% static 'img/caru-2.jpg' %}" alt="Image">
+            <div class="carousel-caption d-flex flex-column align-items-center justify-content-center" style="background: rgba(0, 0, 0, 0.5); padding: 40px; animation: fadeIn 2s;">
+                <h4 class="text-light text-uppercase font-weight-medium mb-3">Reasonable Prices</h4>
+                <h3 class="display-4 text-white font-weight-semi-bold mb-4">Shop the Best Gear</h3>
+                <a href="/shop/" class="btn btn-primary py-2 px-4 rounded-pill shadow-lg">Shop Now</a>
+            </div>
+        </div>
+        <div class="carousel-item" style="height: 700px;">
+            <img class="img-fluid w-100 h-100" src="{% static 'img/caru-4.jpg' %}" alt="Image">
+            <div class="carousel-caption d-flex flex-column align-items-center justify-content-center" style="background: rgba(0, 0, 0, 0.5); padding: 40px; animation: fadeIn 2s;">
+                <h4 class="text-light text-uppercase font-weight-medium mb-3">Reasonable Prices</h4>
+                <h3 class="display-4 text-white font-weight-semi-bold mb-4">Shop the Best Gear</h3>
+                <a href="/shop/" class="btn btn-primary py-2 px-4 rounded-pill shadow-lg">Shop Now</a>
+            </div>
+        </div>
+        <div class="carousel-item" style="height: 700px;">
+            <img class="img-fluid w-100 h-100" src="{% static 'img/caru-5.jpg' %}" alt="Image">
+            <div class="carousel-caption d-flex flex-column align-items-center justify-content-center" style="background: rgba(0, 0, 0, 0.5); padding: 40px; animation: fadeIn 2s;">
+                <h4 class="text-light text-uppercase font-weight-medium mb-3">Reasonable Prices</h4>
+                <h3 class="display-4 text-white font-weight-semi-bold mb-4">Shop the Best Gear</h3>
+                <a href="/shop/" class="btn btn-primary py-2 px-4 rounded-pill shadow-lg">Shop Now</a>
+            </div>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#header-carousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#header-carousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+<!-- Hero Section End -->
+
+<!-- Welcome Section Start -->
+<div class="container-fluid py-5">
+    <div class="text-center mb-4" data-aos="fade-up">
+        <h2 class="section-title px-5"><span class="px-2">Welcome {{ request.user.username }} to Sport Verse</span></h2>
+
+        <p class="lead text-dark">Explore a wide range of sports gear, from fitness equipment to outdoor adventure essentials. Gear up today!</p>
+    </div>
+</div>
+<!-- Welcome Section End -->
+
+<!-- Popular Categories Section Start -->
+<div class="container py-5">
+    <div class="text-center mb-4">
+        <h2 class="section-title px-5"><span class="px-2">Popular Categories</span></h2>
+    </div>
+    <div class="row">
+        <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+            <div class="card shadow border-0">
+                <img class="card-img-top" src="{% static 'img/fitnesseq.jpg' %}" alt="Fitness">
+                <div class="card-body">
+                    <h5 class="card-title">Fitness Equipment</h5>
+                    <p class="text-muted">Top-notch fitness gear for your workout needs.</p>
+                    <a href="/shop/" class="btn btn-outline-primary btn-sm">Explore</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+            <div class="card shadow border-0">
+                <img class="card-img-top" src="{% static 'img/outdoor.jpg' %}" alt="Outdoor">
+                <div class="card-body">
+                    <h5 class="card-title">Outdoor Gear</h5>
+                    <p class="text-muted">Everything you need for your next adventure.</p>
+                    <a href="/shop/" class="btn btn-outline-primary btn-sm">Explore</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
+            <div class="card shadow border-0">
+                <img class="card-img-top" src="{% static 'img/apparel.jpg' %}" alt="Apparel">
+                <div class="card-body">
+                    <h5 class="card-title">Sports Apparel</h5>
+                    <p class="text-muted">Stylish and comfortable apparel for all sports.</p>
+                    <a href="/shop/" class="btn btn-outline-primary btn-sm">Explore</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Popular Categories Section End -->
+
+<!-- Why Choose Us Start -->
+<div class="container-fluid py-5 bg-light" data-aos="fade-up" data-aos-duration="2000">
+    <div class="text-center mb-5">
+        <h2 class="section-title px-5"><span class="px-2">Why Choose Us</span></h2>
+        <p class="text-muted">Delivering excellence and ensuring your satisfaction in every step.</p>
+        <div class="section-line mx-auto"></div>
+    </div>
+    <div class="row text-center g-4">
+        <div class="col-md-3" data-aos="zoom-in" data-aos-delay="100">
+            <div class="feature-card p-4 shadow rounded bg-white h-100">
+                <div class="icon-container mb-3">
+                    <i class="fa fa-star text-primary" style="font-size: 50px;"></i>
+                </div>
+                <h5 class="mt-3 font-weight-bold">Premium Quality</h5>
+                <p class="text-muted">Crafted with the highest standards for durability and performance.</p>
+            </div>
+        </div>
+        <div class="col-md-3" data-aos="zoom-in" data-aos-delay="200">
+            <div class="feature-card p-4 shadow rounded bg-white h-100">
+                <div class="icon-container mb-3">
+                    <i class="fa fa-shipping-fast text-primary" style="font-size: 50px;"></i>
+                </div>
+                <h5 class="mt-3 font-weight-bold">Fast Shipping</h5>
+                <p class="text-muted">Quick delivery across the globe.</p>
+            </div>
+        </div>
+        <div class="col-md-3" data-aos="zoom-in" data-aos-delay="300">
+            <div class="feature-card p-4 shadow rounded bg-white h-100">
+                <div class="icon-container mb-3">
+                    <i class="fa fa-undo-alt text-primary" style="font-size: 50px;"></i>
+                </div>
+                <h5 class="mt-3 font-weight-bold">Easy Returns</h5>
+                <p class="text-muted">Return your order within 14 days hassle-free.</p>
+            </div>
+        </div>
+        <div class="col-md-3" data-aos="zoom-in" data-aos-delay="400">
+            <div class="feature-card p-4 shadow rounded bg-white h-100">
+                <div class="icon-container mb-3">
+                    <i class="fa fa-headset text-primary" style="font-size: 50px;"></i>
+                </div>
+                <h5 class="mt-3 font-weight-bold">24/7 Support</h5>
+                <p class="text-muted">Our friendly team is here to assist you round the clock.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Why Choose Us End -->
+
+<!-- Why Choose Us End -->
+<!--Testimonials-->
+<div class="container-fluid py-5" data-aos="fade-left" data-aos-duration="2000">
+    <div class="text-center mb-4">
+        <h2 class="section-title px-5"><span class="px-2">What Our Customers Say</span></h2>
+        <div class="section-line mb-5"></div>
+    </div>
+    <div class="row px-xl-5">
+        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-duration="1200">
+            <div class="bg-light p-4 shadow rounded h-100">
+                <div class="d-flex align-items-center mb-3">
+                    <img src="{% static 'img/icon-1.jpg' %}" alt="Customer 1" class="rounded-circle" width="50" height="50">
+                    <div class="ml-3">
+                        <h6 class="mb-0">John Doe</h6>
+                        <small class="text-muted">Verified Buyer</small>
+                    </div>
+                </div>
+                <p class="text-muted">"Amazing quality and fast shipping! Highly recommend!"</p>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-duration="1400">
+            <div class="bg-light p-4 shadow rounded h-100">
+                <div class="d-flex align-items-center mb-3">
+                    <img src="{% static 'img/icon-2.jpg' %}" alt="Customer 2" class="rounded-circle" width="50" height="50">
+                    <div class="ml-3">
+                        <h6 class="mb-0">Jane Smith</h6>
+                        <small class="text-muted">Verified Buyer</small>
+                    </div>
+                </div>
+                <p class="text-muted">"The best sports gear store I've come across. Customer service is top-notch!"</p>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-duration="1600">
+            <div class="bg-light p-4 shadow rounded h-100">
+                <div class="d-flex align-items-center mb-3">
+                    <img src="{% static 'img/icon-1.jpg' %}" alt="Customer 3" class="rounded-circle" width="50" height="50">
+                    <div class="ml-3">
+                        <h6 class="mb-0">Mike Johnson</h6>
+                        <small class="text-muted">Verified Buyer</small>
+                    </div>
+                </div>
+                <p class="text-muted">"Wide range of products at great prices. My go-to store for sports items!"</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!--testimonials end-->
+
+<!-- Features Section Start -->
+<!-- Our Features Section Start -->
+<div class="container-fluid py-5 bg-light" data-aos="fade-up" data-aos-duration="2000">
+    <div class="text-center mb-5">
+        <h2 class="section-title px-5"><span class="px-2">Our Features</span></h2>
+        <p class="text-muted">Discover what makes us stand out in delivering the best to you.</p>
+        <div class="section-line mx-auto"></div>
+    </div>
+    <div class="row text-center g-4">
+        <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-duration="1200">
+            <div class="icon-box p-5 shadow rounded bg-white h-100 feature-card">
+                <div class="icon-container mb-3">
+                    <i class="fa fa-certificate text-primary" style="font-size: 60px;"></i>
+                </div>
+                <h5 class="mt-3 font-weight-bold">Certified Quality</h5>
+                <p class="text-muted">All products are tested and meet the highest standards.</p>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-duration="1400">
+            <div class="icon-box p-5 shadow rounded bg-white h-100 feature-card">
+                <div class="icon-container mb-3">
+                    <i class="fa fa-wallet text-primary" style="font-size: 60px;"></i>
+                </div>
+                <h5 class="mt-3 font-weight-bold">Affordable Prices</h5>
+                <p class="text-muted">Get top-notch gear without breaking the bank.</p>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-duration="1600">
+            <div class="icon-box p-5 shadow rounded bg-white h-100 feature-card">
+                <div class="icon-container mb-3">
+                    <i class="fa fa-recycle text-primary" style="font-size: 60px;"></i>
+                </div>
+                <h5 class="mt-3 font-weight-bold">Eco-Friendly</h5>
+                <p class="text-muted">We care about sustainability and the environment.</p>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-duration="1800">
+            <div class="icon-box p-5 shadow rounded bg-white h-100 feature-card">
+                <div class="icon-container mb-3">
+                    <i class="fa fa-heart text-primary" style="font-size: 60px;"></i>
+                </div>
+                <h5 class="mt-3 font-weight-bold">Customer Love</h5>
+                <p class="text-muted">We prioritize your satisfaction above all.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Our Features Section End -->
+
+<!-- Features Section End -->
+{% comment %} 
+Book your Turf {% endcomment %}
+<div class="container-fluid py-5 bg-secondary position-relative" 
+style="background-image: url('{% static 'img/turf.jfif' %}'); 
+       background-size: cover; 
+       background-position: center;" 
+data-aos="fade-in" data-aos-duration="1500">
+<!-- Overlay for dulling the background -->
+<div class="overlay" 
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+           background: rgba(0, 0, 0, 0.6); z-index: 0;"></div>
+<div class="row justify-content-center position-relative z-index-1 text-center text-light">
+   <div class="col-md-8 col-lg-6">
+       <h2 class="mb-4 text-light display-4 font-weight-bold" 
+           style="text-shadow: 5px 5px 15px rgba(0, 0, 0, 0.7); letter-spacing: 1.5px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+           Customize & Book Your Turf!
+       </h2>
+       <p class="lead mb-4" 
+          style="font-size: 20px; line-height: 1.8; text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.6);">
+          Choose your game, select a time slot, and reserve your turf for an amazing sports experience.
+       </p>
+       <form class="text-left" action="{% url 'turfs' %}" method="post" style="z-index: 1;">
+           {% csrf_token %}
+           <!-- Game Input -->
+           <div class="form-group mb-4">
+               <label for="game" class="font-weight-bold">Choose Your Game:</label>
+               <input type="text" id="game" name="game" class="form-control" required 
+                      style="padding: 12px; border-radius: 10px; font-size: 16px;" 
+                      placeholder="Enter the sport you want to play (e.g., Football, Cricket)">
+           </div>
+           <!-- Date Picker -->
+           <div class="form-group mb-4">
+               <label for="date" class="font-weight-bold">Select Date:</label>
+               <input type="date" id="date" name="date" class="form-control" required 
+                      style="padding: 12px; border-radius: 10px; font-size: 16px;">
+           </div>
+           <!-- Time Slot Picker -->
+           <div class="form-group mb-4">
+               <label for="time_start" class="font-weight-bold">Select Start Time:</label>
+               <input type="time" id="time_start" name="time_start" class="form-control" required 
+                      style="padding: 12px; border-radius: 10px; font-size: 16px;">
+           </div>
+           <div class="form-group mb-4">
+               <label for="time_end" class="font-weight-bold">Select End Time:</label>
+               <input type="time" id="time_end" name="time_end" class="form-control" required 
+                      style="padding: 12px; border-radius: 10px; font-size: 16px;">
+           </div>
+           <!-- Participants Input -->
+           <div class="form-group mb-4">
+               <label for="participants" class="font-weight-bold">Number of Participants:</label>
+               <input type="number" id="participants" name="participants" class="form-control" required 
+                      style="padding: 12px; border-radius: 10px; font-size: 16px;" 
+                      placeholder="Enter number of players">
+           </div>
+           <!-- Submit Button -->
+           <div class="text-center">
+               <button type="submit" class="btn btn-primary px-5 py-2" 
+                       style="font-size: 18px; font-weight: bold; border-radius: 25px; transition: all 0.3s ease;">
+                   Book Now
+               </button>
+           </div>
+       </form>
+   </div>
+</div>
+</div>
+
+
+<!-- Add some hover effect for the button -->
+<style>
+    .btn-primary:hover {
+        background-color:rgb(226, 135, 205);
+        transform: scale(1.05);
+    }
+</style>
+
+
+<!-- End -->
+
+<!-- Special Offers Section Start -->
+<div class="container-fluid py-5 bg-light">
+    <div class="text-center mb-4">
+        <h2 class="section-title px-5"><span class="px-2">Special Offers</span></h2>
+        <p class="lead text-muted">Don't miss out on these amazing deals!</p>
+    </div>
+    <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="offer-card shadow rounded text-center p-4 position-relative bg-white">
+                <div class="icon mb-3">
+                    <i class="fas fa-gift fa-2x text-primary"></i>
+                </div>
+                <h4>New Year Sale</h4>
+                <p class="text-muted">Flat 20% off on all items!</p>
+                <a href="/shop/" class="btn btn-primary btn-sm">Shop Now</a>
+                <div class="badge bg-danger text-white position-absolute top-0 end-0 m-3">Hot</div>
+            </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="offer-card shadow rounded text-center p-4 position-relative bg-white">
+                <div class="icon mb-3">
+                    <i class="fas fa-shopping-cart fa-2x text-primary"></i>
+                </div>
+                <h4>Buy 1 Get 1 Free</h4>
+                <p class="text-muted">On select fitness equipment.</p>
+                <a href="/shop/" class="btn btn-primary btn-sm">Explore</a>
+                <div class="badge bg-success text-white position-absolute top-0 end-0 m-3">New</div>
+            </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="offer-card shadow rounded text-center p-4 position-relative bg-white">
+                <div class="icon mb-3">
+                    <i class="fas fa-percent fa-2x text-primary"></i>
+                </div>
+                <h4>Clearance Sale</h4>
+                <p class="text-muted">Up to 50% off on outdoor gear.</p>
+                <a href="/shop/" class="btn btn-primary btn-sm">Browse Deals</a>
+                <div class="badge bg-warning text-dark position-absolute top-0 end-0 m-3">Limited</div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Special Offers Section End -->
+
+
+<!-- Offers for You Section Start -->
+<!-- Offers for You Section Start -->
+{% comment %} <div class="container-fluid py-5">
+    <div class="text-center mb-4">
+        <h2 class="section-title px-5"><span class="px-2">Offers for You</span></h2>
+        <p class="lead">Exclusive deals picked just for you, {{ request.user.username }}!</p>
+    </div>
+    <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-right" data-aos-delay="100">
+            <div class="offer-card shadow-lg p-4 bg-white text-dark rounded text-center">
+                <i class="fas fa-tag fa-3x text-primary mb-3"></i>
+                <h5>20% Off</h5>
+                <p class="text-muted">On your first order.</p>
+                <a href="/shop/" class="btn btn-primary btn-sm">Claim Offer</a>
+            </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="offer-card shadow-lg p-4 bg-white text-dark rounded text-center">
+                <i class="fas fa-truck fa-3x text-primary mb-3"></i>
+                <h5>Free Shipping</h5>
+                <p class="text-muted">On orders above $100.</p>
+                <a href="/shop/" class="btn btn-primary btn-sm">Explore Now</a>
+            </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-left" data-aos-delay="300">
+            <div class="offer-card shadow-lg p-4 bg-white text-dark rounded text-center">
+                <i class="fas fa-snowflake fa-3x text-primary mb-3"></i>
+                <h5>Seasonal Discount</h5>
+                <p class="text-muted">Extra 15% off on winter apparel.</p>
+                <a href="/shop/apparel" class="btn btn-primary btn-sm">Shop Apparel</a>
+            </div>
+        </div>
+    </div>
+</div> {% endcomment %}
+<!-- Offers for You Section End -->
+
+<!-- Offers for You Section End -->
+
+
+
+<style>
+    .carousel-inner img { object-fit: cover; }
+    .section-title { font-weight: bold; }
+    .btn-hover-shadow:hover { box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); }
+    .feature-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .feature-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    .section-line {
+        width: 50px;
+        height: 3px;
+        background-color: #007bff;
+        margin: 20px auto;
+        border-radius: 5px;
+    }
+</style>
+
+{% endblock content %}

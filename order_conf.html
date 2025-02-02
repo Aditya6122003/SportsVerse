@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% block title %} Home {% endblock title%}
+{% block content %}
+
+{% endblock content %}
+{% block body %}
+
+<div class="container-fluid pt-5">
+    <div class="row px-xl-5">
+        <div class="col-lg-12 text-center">
+            <h2>Order Placed Successfully!</h2>
+            <p>Thank you for placing your order. We will process it soon.</p>
+            <a href="/shop/" class="btn btn-light py-2 px-3 mt-5">Return to Shop</a>
+        </div>
+    </div>
+</div>
+{% endblock body %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--# def place_order(request):-->
+<!--#     if request.method == 'POST':-->
+<!--#         # Get the checkout form data-->
+<!--#         firstname = request.POST['firstname']-->
+<!--#         lastname = request.POST['lastname']-->
+<!--#         email = request.POST['email']-->
+<!--#         number = request.POST['number']-->
+<!--#         add1 = request.POST['add1']-->
+<!--#         add2 = request.POST['add2']-->
+<!--#         country = request.POST['country']-->
+<!--#         city = request.POST['city']-->
+<!--#         state = request.POST['state']-->
+<!--#         zipcode = request.POST['zipcode']-->
+<!--#-->
+<!--#         cart_items = AddItem.objects.filter(user=request.user)-->
+<!--#-->
+<!--#         order= OrderDetail()-->
+<!--#         order.user= request.user-->
+<!--#         order.status='pending'-->
+<!--#         order.order_date = datetime.date.today()-->
+<!--#         order.save()-->
+<!--#-->
+<!--#-->
+<!--#         for item in cart_items:-->
+<!--#             order_detail= OrderDetail()-->
+<!--#             order_detail.user=request.user-->
+<!--#             order_detail.product_name=item.product-->
+<!--#             order_detail.quantity=item.quantity-->
+<!--#             order_detail.total=item.total_price-->
+<!--#             order_detail.status='pending'-->
+<!--#             order_detail.save()-->
+<!--#-->
+<!--#-->
+<!--#-->
+<!--#             item.delete()-->
+<!--#-->
+<!--#         return render(request, 'checkout.html')-->
+
+

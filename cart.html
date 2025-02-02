@@ -1,0 +1,174 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}My-Cart{% endblock title %}
+
+{% block content %}
+
+
+
+<!-- Page Header Start -->
+
+
+<div class="container-fluid mb-5 py-4 shadow-sm">
+    <div class="d-flex flex-column align-items-center justify-content-center">
+        <h1 class="font-weight-bold text-uppercase text-dark mb-3" style="letter-spacing: 2px;">Your Cart</h1>
+        <div class="d-inline-flex">
+            <p class="m-0"><a href="/" class="text-dark">Home</a></p>
+            <p class="m-0 px-2">-</p>
+            <p class="m-0 text-dark">Shopping Cart</p>
+        </div>
+    </div>
+</div>
+<!-- Page Header End -->
+
+{% if cart_items %}
+
+<!-- Cart Start -->
+<div class="container-fluid pt-5">
+    <div class="row px-xl-5">
+        <div class="col-lg-8 table-responsive mb-5">
+            <div class="card shadow-sm rounded border-0">
+                <table class="table text-center mb-0">
+                    <thead style="background: #D19C97; color: white;">
+                    <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                        <th>Remove</th>
+                    </tr>
+                    </thead>
+                    <tbody class="align-middle">
+                    {% for item in cart_items %}
+                    <tr style="border-bottom: 1px solid #dee2e6;">
+                        <td class="align-middle">
+                            <div class="d-flex align-items-center">
+                                <img src="{{ item.product.image_url }}" alt="{{ item.product.name }}" class="img-fluid rounded-circle mr-3" style="width: 60px; height: 60px;">
+                                <span class="font-weight-bold">{{ item.product.name }}</span>
+                            </div>
+                        </td>
+                        <td class="align-middle">${{ item.product.price }}</td>
+                        <td class="align-middle">
+                            <form action="{% url 'change_quantity' item.id  %}" method="post">
+                                {% csrf_token %}
+                                <div class="input-group justify-content-center">
+                                    <input type="number" class="form-control text-center" name="quantity" value="{{ item.quantity }}" min="1" max="100">
+                                    <button type="submit" class="btn btn-primary btn-sm ml-2">Update</button>
+                                </div>
+                            </form>
+                        </td>
+                        <td class="align-middle font-weight-bold">${{ item.total_price }}</td>
+                        <td class="align-middle">
+                            <a href="{% url 'remove_from_cart' item.id %}" class="btn btn-sm btn-danger">Remove</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="text-center mt-5">
+                <a href="/shop/" class="btn btn-outline-primary py-2 px-4">Continue Shopping</a>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <form class="mb-4">
+                <div class="input-group">
+                    <input type="text" class="form-control p-3 rounded-left" placeholder="Enter Coupon Code">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary rounded-right">Apply</button>
+                    </div>
+                </div>
+            </form>
+            <div class="card border-0 shadow-sm rounded">
+                <div class="card-header text-white" style="background: #D19C97;">
+                    <h4 class="font-weight-bold m-0">Cart Summary</h4>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex justify-content-between mb-3">
+                        <h6 class="font-weight-medium">Subtotal</h6>
+                        <h6 class="font-weight-medium">₹{{ subtotal }}</h6>
+                    </div>
+                    <div class="d-flex justify-content-between mb-3">
+                        <h6 class="font-weight-medium">Shipping</h6>
+                        <h6 class="font-weight-medium">₹{{ shipping_charge }}</h6>
+                    </div>
+                </div>
+                <div class="card-footer bg-light">
+                    <div class="d-flex justify-content-between">
+                        <h5 class="font-weight-bold">Total</h5>
+                        <h5 class="font-weight-bold">₹{{ total }}</h5>
+                    </div>
+                    <a href="/checkout/" class="btn btn-primary btn-block py-3">Proceed to Checkout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Cart End -->
+
+{% else %}
+<!-- Empty Cart Message -->
+<div class="container-fluid pt-5">
+    <div class="row px-xl-5">
+        <div class="col-lg-12 text-center">
+            <h2 class="text-dark">Your cart is empty!</h2>
+            <p class="text-muted">Browse our collection to find the best sports gear for you.</p>
+            <a href="/shop/" class="btn btn-outline-primary py-2 px-4 mt-4">Return to Shop</a>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+<style>
+    .table {
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .table thead {
+        border-bottom: 2px solid #e9ecef;
+    }
+    .table tr:nth-child(odd) {
+        background-color: #f8f9fa;
+    }
+    .table tr:nth-child(even) {
+        background-color: #ffffff;
+    }
+    .table th {
+        font-weight: 600;
+        padding: 15px;
+    }
+    .table td {
+        padding: 15px;
+    }
+    .btn-primary {
+        background: linear-gradient(135deg, #D19C97, #F0D9D8);
+        border: none;
+    }
+    .btn-danger {
+        background: #dc3545;
+        border: none;
+    }
+    .btn-outline-primary {
+        border: 2px solid #D19C97;
+        color: #D19C97;
+    }
+    .btn-outline-primary:hover {
+        background: #D19C97;
+        color: white;
+    }
+    .card {
+        border-radius: 8px;
+    }
+    .card-header {
+        border-radius: 8px 8px 0 0;
+    }
+    .card-body {
+        padding: 1.5rem;
+    }
+    .card-footer {
+        padding: 1.5rem;
+    }
+</style>
+{% endblock %}

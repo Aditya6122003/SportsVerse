@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} {{ product.name }} - Sport Verse {% endblock title %}
+{% block body %}
+<style>
+    /* Styles remain largely unchanged except for minor adjustments */
+    .btn-primary-custom {
+        background-color: #D19C97;
+        color: white;
+        border: none;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-primary-custom:hover {
+        background-color: #e1b7b0;
+    }
+
+    .quantity-section {
+        display: flex;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    .quantity-section input {
+        width: 60px;
+        text-align: center;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin: 0 10px;
+    }
+
+    .btn-add-to-cart {
+        padding: 10px 20px;
+        font-size: 1rem;
+        font-weight: bold;
+        margin-left: 20px;
+        border-radius: 5px;
+    }
+</style>
+
+<div class="container product-detail-container">
+    <div class="row">
+        <!-- Product Image -->
+        <div class="col-md-6">
+            <div class="product-detail-image">
+                <img src="{{ product.image.url }}" alt="{{ product.name }}" style="max-height: 400px; object-fit: cover;">
+            </div>
+        </div>
+
+        <!-- Product Information -->
+        <div class="col-md-6">
+            <div class="product-info">
+                <h2>{{ product.name }}</h2>
+                <div class="d-flex align-items-center">
+                    <div class="rating primary-color">
+                        {% for i in "★★★★★" %}
+                            {% if forloop.counter <= product.rating %}
+                                <i class="fas fa-star"></i>
+                            {% else %}
+                                <i class="far fa-star"></i>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <small class="text-muted ml-2">({{ product.review_count }} Reviews)</small>
+                </div>
+                <p class="price my-3">Price: ${{ product.price }} {% if product.original_price %}<del>${{ product.original_price }}</del>{% endif %}</p>
+                <p>{{ product.description }}</p>
+
+                <!-- Quantity and Add to Cart -->
+                <div class="quantity-section">
+                    <button class="btn btn-primary-custom btn-sm" id="minus-btn">-</button>
+                    <input type="number" id="quantity-input" value="1" min="1">
+                    <button class="btn btn-primary-custom btn-sm" id="plus-btn">+</button>
+                    <a href="/add_cart/{{ product.id }}/" class="btn btn-primary-custom btn-add-to-cart">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // JavaScript for handling quantity changes
+    document.addEventListener('DOMContentLoaded', () => {
+        const quantityInput = document.getElementById('quantity-input');
+        const minusBtn = document.getElementById('minus-btn');
+        const plusBtn = document.getElementById('plus-btn');
+        const addToCartBtn = document.getElementById('add-to-cart-btn');
+
+        // Increment quantity
+        plusBtn.addEventListener('click', () => {
+            let currentValue = parseInt(quantityInput.value, 10);
+            quantityInput.value = currentValue + 1;
+        });
+
+        // Decrement quantity
+        minusBtn.addEventListener('click', () => {
+            let currentValue = parseInt(quantityInput.value, 10);
+            if (currentValue > 1) {
+                quantityInput.value = currentValue - 1;
+            }
+        });
+</script>
+{% endblock %}

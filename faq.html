@@ -1,0 +1,194 @@
+{% extends "base.html" %}
+{% load static%}
+{% block title %}
+FAQ - Frequently Asked Questions
+{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <div class="text-center mb-5">
+        <img src="{% static 'img/about.jpg' %}" alt="Sport Verse Logo" style="width: 200px; margin-bottom: 20px;">
+        <h1 class="font-weight-bold">Frequently Asked Questions</h1>
+        <p>Find answers to your queries about Sport Verse products and services.</p>
+    </div>
+
+    <!-- FAQ Accordion -->
+    <div class="accordion" id="faqAccordion">
+        <!-- Question 1 -->
+        <div class="accordion" id="faqAccordion">
+            <!-- Question 1 -->
+            <div class="card">
+                <div class="card-header" id="heading1">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                            What is Sport Verse?
+                        </button>
+                    </h2>
+                </div>
+                <div id="collapse1" class="collapse show" aria-labelledby="heading1" data-parent="#faqAccordion">
+                    <div class="card-body">
+                        Sport Verse is your one-stop shop for all sports equipment and accessories.
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Question 2 -->
+            <div class="card">
+                <div class="card-header" id="heading2">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                            How can I track my order?
+                        </button>
+                    </h2>
+                </div>
+                <div id="collapse2" class="collapse" aria-labelledby="heading2" data-parent="#faqAccordion">
+                    <div class="card-body">
+                        You can track your order through the "My Orders" section in your account dashboard.
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Question 3 -->
+            <div class="card">
+                <div class="card-header" id="heading3">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                            What is the return policy?
+                        </button>
+                    </h2>
+                </div>
+                <div id="collapse3" class="collapse" aria-labelledby="heading3" data-parent="#faqAccordion">
+                    <div class="card-body">
+                        You can return products within 30 days of purchase if they meet our return policy conditions.
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Question 4 -->
+            <div class="card">
+                <div class="card-header" id="heading4">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                            Are there any discounts available?
+                        </button>
+                    </h2>
+                </div>
+                <div id="collapse4" class="collapse" aria-labelledby="heading4" data-parent="#faqAccordion">
+                    <div class="card-body">
+                        Yes, we offer seasonal discounts and exclusive deals for registered users.
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Question 5 -->
+            <div class="card">
+                <div class="card-header" id="heading5">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
+                            Can I change my delivery address after placing an order?
+                        </button>
+                    </h2>
+                </div>
+                <div id="collapse5" class="collapse" aria-labelledby="heading5" data-parent="#faqAccordion">
+                    <div class="card-body">
+                        Yes, contact our support team immediately to update your delivery address.
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Question 6 -->
+            <div class="card">
+                <div class="card-header" id="heading6">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
+                            Do you ship internationally?
+                        </button>
+                    </h2>
+                </div>
+                <div id="collapse6" class="collapse" aria-labelledby="heading6" data-parent="#faqAccordion">
+                    <div class="card-body">
+                        Currently, we only ship within the United States.
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Question 7 -->
+            <div class="card">
+                <div class="card-header" id="heading7">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapse7" aria-expanded="false" aria-controls="collapse7">
+                            How do I cancel my order?
+                        </button>
+                    </h2>
+                </div>
+                <div id="collapse7" class="collapse" aria-labelledby="heading7" data-parent="#faqAccordion">
+                    <div class="card-body">
+                        You can cancel your order through the "My Orders" section or by contacting support.
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Question 8 -->
+            <div class="card">
+                <div class="card-header" id="heading8">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapse8" aria-expanded="false" aria-controls="collapse8">
+                            What payment methods are accepted?
+                        </button>
+                    </h2>
+                </div>
+                <div id="collapse8" class="collapse" aria-labelledby="heading8" data-parent="#faqAccordion">
+                    <div class="card-body">
+                        We accept credit cards, debit cards, PayPal, and Razorpay.
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Question 9 -->
+            <div class="card">
+                <div class="card-header" id="heading9">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapse9" aria-expanded="false" aria-controls="collapse9">
+                            Do you offer gift cards?
+                        </button>
+                    </h2>
+                </div>
+                <div id="collapse9" class="collapse" aria-labelledby="heading9" data-parent="#faqAccordion">
+                    <div class="card-body">
+                        Yes, gift cards are available for purchase on our website.
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Question 10 -->
+            <div class="card">
+                <div class="card-header" id="heading10">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapse10" aria-expanded="false" aria-controls="collapse10">
+                            Can I get assistance for bulk purchases?
+                        </button>
+                    </h2>
+                </div>
+                <div id="collapse10" class="collapse" aria-labelledby="heading10" data-parent="#faqAccordion">
+                    <div class="card-body">
+                        Yes, contact our sales team for assistance with bulk purchases.
+                    </div>
+                </div>
+            </div>
+    
+
+        <!-- Ask a Question Form -->
+        <div class="mt-5">
+            <h3 class="mb-4">Still Have Questions?</h3>
+            <form method="post" action="#">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="user-question">Your Question</label>
+                    <textarea class="form-control" id="user-question" name="user_question" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Question</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

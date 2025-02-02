@@ -1,0 +1,243 @@
+{% extends 'base.html' %}
+{% block title %}Checkout{% endblock title %}
+{% block content %}
+
+<!-- Page Header Start -->
+<div class="container-fluid bg-secondary mb-5 shadow-lg">
+    <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 150px">
+        <h1 class="font-weight-semi-bold text-uppercase text-dark mb-3">Checkout</h1>
+        <div class="d-inline-flex">
+            <p class="m-0 text-white"><a href="/" class="text-dark">Home</a></p>
+            <p class="m-0 px-2 text-dark">-</p>
+            <p class="m-0 text-dark">Checkout</p>
+        </div>
+    </div>
+</div>
+<!-- Page Header End -->
+
+<!-- Checkout Start -->
+<div class="container-fluid pt-5">
+    <form action="{% url 'place_order' %}" method="post">
+        {% csrf_token %}
+        <div class="row px-xl-5">
+            <div class="col-lg-8">
+                <div class="mb-4">
+                    <h4 class="font-weight-semi-bold mb-4">Billing Address</h4>
+                    <div class="row">
+
+                        <!-- First Name -->
+                        <div class="col-md-6 form-group">
+                            <label for="firstname" class="font-weight-bold">First Name</label>
+                            <div class="input-group input-group-lg">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text bg-primary text-white"><i class="fas fa-user"></i></span>
+                                </div>
+                                <input required class="form-control form-control-lg shadow-sm" type="text" placeholder="First name" name="firstname" id="firstname">
+                            </div>
+                        </div>
+
+                        <!-- Last Name -->
+                        <div class="col-md-6 form-group">
+                            <label for="lastname" class="font-weight-bold">Last Name</label>
+                            <div class="input-group input-group-lg">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text bg-primary text-white"><i class="fas fa-user"></i></span>
+                                </div>
+                                <input required class="form-control form-control-lg shadow-sm" type="text" placeholder="Last name" name="lastname" id="lastname">
+                            </div>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="col-md-6 form-group">
+                            <label for="email" class="font-weight-bold">E-mail</label>
+                            <div class="input-group input-group-lg">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text bg-primary text-white"><i class="fas fa-envelope"></i></span>
+                                </div>
+                                <input required class="form-control form-control-lg shadow-sm" type="email" placeholder="example@email.com" name="email" id="email">
+                            </div>
+                        </div>
+
+                        <!-- Mobile No -->
+                        <div class="col-md-6 form-group">
+                            <label for="number" class="font-weight-bold">Mobile No</label>
+                            <div class="input-group input-group-lg">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text bg-primary text-white"><i class="fas fa-phone"></i></span>
+                                </div>
+                                <input required class="form-control form-control-lg shadow-sm" type="text" placeholder="+123 456 789" name="number" id="number">
+                            </div>
+                        </div>
+
+                        <!-- Address Line 1 -->
+                        <div class="col-md-6 form-group">
+                            <label for="add1" class="font-weight-bold">Address Line 1</label>
+                            <div class="input-group input-group-lg">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text bg-primary text-white"><i class="fas fa-map-marker-alt"></i></span>
+                                </div>
+                                <input required class="form-control form-control-lg shadow-sm" type="text" placeholder="123 Street" name="add1" id="add1">
+                            </div>
+                        </div>
+
+                        <!-- Address Line 2 -->
+                        <div class="col-md-6 form-group">
+                            <label for="add2" class="font-weight-bold">Address Line 2</label>
+                            <div class="input-group input-group-lg">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text bg-primary text-white"><i class="fas fa-map-marker-alt"></i></span>
+                                </div>
+                                <input class="form-control form-control-lg shadow-sm" type="text" placeholder="Apartment, studio, etc." name="add2" id="add2">
+                            </div>
+                        </div>
+
+                        <!-- Country -->
+                        <div class="col-md-6 form-group">
+                            <label for="country" class="font-weight-bold">Country</label>
+                            <div class="input-group input-group-lg">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text bg-primary text-white"><i class="fas fa-globe"></i></span>
+                                </div>
+                                <input required class="form-control form-control-lg shadow-sm" type="text" placeholder="Country" name="country" id="country">
+                            </div>
+                        </div>
+
+                        <!-- City -->
+                        <div class="col-md-6 form-group">
+                            <label for="city" class="font-weight-bold">City</label>
+                            <div class="input-group input-group-lg">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text bg-primary text-white"><i class="fas fa-city"></i></span>
+                                </div>
+                                <input required class="form-control form-control-lg shadow-sm" type="text" placeholder="City" name="city" id="city">
+                            </div>
+                        </div>
+
+                        <!-- State -->
+                        <div class="col-md-6 form-group">
+                            <label for="state" class="font-weight-bold">State</label>
+                            <div class="input-group input-group-lg">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text bg-primary text-white"><i class="fas fa-flag"></i></span>
+                                </div>
+                                <input required class="form-control form-control-lg shadow-sm" type="text" placeholder="State" name="state" id="state">
+                            </div>
+                        </div>
+
+                        <!-- ZIP Code -->
+                        <div class="col-md-6 form-group">
+                            <label for="zipcode" class="font-weight-bold">ZIP Code</label>
+                            <div class="input-group input-group-lg">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text bg-primary text-white"><i class="fas fa-mail-bulk"></i></span>
+                                </div>
+                                <input required class="form-control form-control-lg shadow-sm" type="text" placeholder="12345" name="zipcode" id="zipcode">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Order Total -->
+            <div class="col-lg-4">
+                <div class="card border-secondary mb-5 shadow-sm">
+                    <div class="card-header bg-primary border-0 text-white">
+                        <h4 class="font-weight-semi-bold m-0">Order Total</h4>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="font-weight-medium mb-3">Products</h5>
+                        {% for item in cart_items %}
+                        <div class="d-flex justify-content-between">
+                            <p>{{ item.product.name }}</p>
+                            <p>${{ item.total_price }}</p>
+                        </div>
+                        {% endfor %}
+                        <hr class="mt-0">
+                        <div class="d-flex justify-content-between mb-3 pt-1">
+                            <h6 class="font-weight-medium">Subtotal</h6>
+                            <h6 class="font-weight-medium">${{ subtotal }}</h6>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <h6 class="font-weight-medium">Shipping</h6>
+                            <h6 class="font-weight-medium">${{ shipping_charge }}</h6>
+                        </div>
+                    </div>
+                    <div class="card-footer border-secondary bg-transparent">
+                        <div class="d-flex justify-content-between mt-2">
+                            <h5 class="font-weight-bold text-primary">Total</h5>
+                            <h6 class="font-weight-medium text-primary">${{ total }}</h6>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card border-secondary mb-5 shadow-sm">
+                    <div class="card-header bg-primary border-0 text-white">
+                        <h4 class="font-weight-semi-bold m-0">Payment</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" name="payment_mode" value="COD" id="directcheck" required>
+                                <label class="custom-control-label" for="directcheck">COD</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" name="payment_mode" value="Razorpay" id="paypal">
+                                <label class="custom-control-label" for="paypal">Pay with Razorpay</label>
+                                <button id="rzp-button1" style="display: none;" class="btn btn-light text-center ">Pay</button>
+                            </div>
+                        </div>
+                        <button id="place-order-btn" type="submit" class="btn btn-block btn-primary my-3 py-3 shadow-lg">Place Order</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script>
+        var options = {
+            "key": "{{ api_key }}",
+            "amount": "{{ total_in_paise }}",
+            "name": "Sport Verse",
+            "description": "Test Transaction",
+            "image": "https://example.com/your_logo",
+            "order_id": "{{ order_id }}",
+            "callback_url": "{% url 'razorpay_callback' %}",
+            "prefill": {
+                "name": "{{ user.first_name }} {{ user.last_name }}",
+                "email": "{{ user.email }}",
+                "contact": "{{ user.profile.phone }}"
+            },
+            "notes": {
+                "address": "Razorpay Corporate Office"
+            },
+            "theme": {
+                "color": "#3399cc"
+            }
+        };
+        var rzp1 = new Razorpay(options);
+
+        document.getElementById('rzp-button1').onclick = function(e){
+            rzp1.open();
+            e.preventDefault();
+        }
+
+        document.getElementById('place-order-btn').addEventListener('click', function(e) {
+             document.querySelector('form').submit();
+        });
+
+        document.getElementById('paypal').addEventListener('click', function() {
+            document.getElementById('rzp-button1').style.display = 'block';
+        });
+
+        document.getElementById('directcheck').addEventListener('click', function() {
+            document.getElementById('rzp-button1').style.display = 'none';
+        });
+    </script>
+</div>
+<!-- Checkout End -->
+
+{% endblock content %}

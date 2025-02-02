@@ -1,0 +1,175 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} About Us {% endblock title %}
+
+{% block content %}
+<!-- Hero Section Start -->
+<div class="container-fluid hero-section mb-5">
+    <div class="d-flex flex-column align-items-center justify-content-center text-center">
+        <h1 class="display-4 text-dark font-weight-bold mb-3">About Us</h1>
+        <p class="text-dark-50 lead">Discover who we are, what drives us, and how we aim to bring the best sports items to you.</p>
+    </div>
+</div>
+<!-- Hero Section End -->
+
+<!-- About Section -->
+<div class="container py-5">
+    <div class="row align-items-center">
+        <div class="col-lg-6 mb-3">
+            <img src="{% static 'img/about.jpg' %}" class="img-fluid rounded shadow" alt="About Us">
+        </div>
+        <div class="col-lg-6">
+            <h2 class="section">Welcome to <span class="text-primary">Sport Verse</span></h2>
+            <p>At <strong>Sport Verse</strong>, we believe sports have the power to transform lives. Our mission is to inspire passion, enable performance, and foster a sense of community among sports enthusiasts worldwide.</p>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <i class="fa fa-check-circle text-success mr-2"></i>Comprehensive range of sports and fitness products.
+                </li>
+                <li class="list-group-item">
+                    <i class="fa fa-check-circle text-success mr-2"></i>Exclusive deals and personalized recommendations.
+                </li>
+                <li class="list-group-item">
+                    <i class="fa fa-check-circle text-success mr-2"></i>Commitment to quality and customer satisfaction.
+                </li>
+                <li class="list-group-item">
+                    <i class="fa fa-check-circle text-success mr-2"></i>Fast and reliable worldwide shipping.
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Our Mission Section -->
+<div class="container-fluid py-5 bg-primary-dark">
+    <div class="text-center mb-4">
+        <h2 class="section">Our Mission</h2>
+        <p class="text-muted">To inspire and enable everyone to lead a healthier, more active lifestyle through innovative products and an unwavering commitment to excellence.</p>
+    </div>
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card text-center border-0 shadow-lg">
+                <div class="card-body ">
+                    <div class="icon-circle bg-primary text-white mb-4">
+                        <i class="fa fa-lightbulb fa-2x"></i>
+                    </div>
+                    <h5 class="card-title">Innovative Products</h5>
+                    <p class="card-text">We stay ahead of trends, offering cutting-edge sports equipment designed for maximum performance.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card text-center border-0 shadow-lg">
+                <div class="card-body">
+                    <div class="icon-circle bg-primary text-white mb-4">
+                        <i class="fa fa-users fa-2x"></i>
+                    </div>
+                    <h5 class="card-title">Community Engagement</h5>
+                    <p class="card-text">Our events and partnerships bring together athletes and fans, building a strong community spirit.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card text-center border-0 shadow-lg">
+                <div class="card-body">
+                    <div class="icon-circle bg-primary text-white mb-4">
+                        <i class="fa fa-leaf fa-2x"></i>
+                    </div>
+                    <h5 class="card-title">Sustainability</h5>
+                    <p class="card-text">We are dedicated to eco-friendly practices, ensuring our products and processes are kind to the planet.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Testimonials Section -->
+<div class="container py-5">
+    <div class="text-center mb-4">
+        <h2 class="section">What Our Customers Say</h2>
+        <p class="text-muted">Hear from our valued customers who trust us for their sports needs.</p>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="testimonial p-4 rounded bg-light shadow">
+                <p class="mb-2">"Exceptional quality and service! I've never been happier with my sports gear purchases."</p>
+                <h6>- Alex Morgan</h6>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="testimonial p-4 rounded bg-light shadow">
+                <p class="mb-2">"Sport Verse always delivers on time and provides the best prices. Highly recommended!"</p>
+                <h6>- Chris Johnson</h6>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="testimonial p-4 rounded bg-light shadow">
+                <p class="mb-2">"Their customer support team is amazing. They helped me find exactly what I needed."</p>
+                <h6>- Taylor Brown</h6>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Call to Action -->
+<div class="container-fluid bg-white text-dark text-center py-5">
+    <h2 class="font-weight-bold mb-3">Join Our Community</h2>
+    <p class="lead mb-4">Become part of a growing community of sports enthusiasts. Shop with us and experience the difference!</p>
+    <a href="/shop/" class="btn btn-primary btn-lg rounded-pill">Shop Now</a>
+</div>
+
+{% endblock content %}
+
+<style>
+.hero-section {
+    background: linear-gradient(to right, rgba(0, 123, 255, 0.8), rgba(40, 167, 69, 0.8)), url('{% static "img/hero-bg.jpg" %}') center/cover;
+    padding: 100px 0;
+    color: white;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: #007bff;
+    font-weight: bold;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.section-title::after {
+    content: '';
+    width: 60px;
+    height: 4px;
+    background: #6c757d;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.icon-circle {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+.testimonial {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial:hover {
+    transform: translateY(-5px);
+    
+}
+
+.list-group-item {
+    font-size: 1.1rem;
+    color: #495057;
+}
+
+.bg-gradient-light {
+    background: linear-gradient(to right, #f8f9fa, #e9ecef);
+}
+</style>

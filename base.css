@@ -1,0 +1,71 @@
+/* Unified Theme for Navbar, Footer, and Logo */
+
+/* Navbar */
+.navbar {
+    background-color: #2c2c2c !important; /* Dark background */
+    color: #ffffff !important; /* White text */
+}
+
+.navbar .nav-link {
+    color: #dddddd !important; /* Light gray links */
+}
+
+.navbar .nav-link:hover {
+    color: #ffffff !important; /* White on hover */
+}
+
+/* Footer */
+.bg-secondary {
+    background-color: #2c2c2c !important; /* Same dark background as navbar */
+    color: #cccccc !important; /* Light gray text */
+}
+
+.footer a {
+    color: #bbbbbb !important; /* Footer links */
+}
+
+.footer a:hover {
+    color: #ffffff !important; /* White links on hover */
+}
+
+/* Logo */
+h1.display-5 {
+    color: #ffffff !important; /* White logo text */
+}
+
+h1.display-5 span {
+    color: #e63946 !important; /* Accent color for part of the logo */
+}
+
+/* Button Styles (Optional, for consistency) */
+.btn-primary {
+    background-color: #e63946 !important; /* Accent color for buttons */
+    border-color: #e63946 !important;
+}
+
+.btn-primary:hover {
+    background-color: #c5283a !important; /* Slightly darker accent on hover */
+    border-color: #c5283a !important;
+}
+.card.product-item {
+    height: 400px;  /* Set the desired height */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Ensures the card image doesn't stretch and maintains aspect ratio */
+.card-header.product-img img {
+    object-fit: cover;
+    height: 250px;  /* Adjust the height of the image */
+}
+
+/* Ensures the card body fills the available space without overflowing */
+.card-body {
+    flex-grow: 1;
+}
+
+/* Adjust the footer of the card if necessary */
+.card-footer {
+    margin-top: auto;  /* Ensures the footer stays at the bottom */
+}
